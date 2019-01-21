@@ -10,8 +10,8 @@ for ITERATING through SEQUENCES, including selections from:
   -- Looking at two sequences in parallel
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Loki Strain.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -107,6 +107,13 @@ def shortest_string(strings):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    index_of_min = 0
+    for k in range(1, len(strings)):
+        if len(strings[k]) < len(strings[index_of_min]):
+            index_of_min = k
+
+    return strings[index_of_min]
+
 
 def run_test_index_of_largest_number():
     """ Tests the   index_of_largest_number   function. """
@@ -184,6 +191,13 @@ def index_of_largest_number(numbers, n):
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
 
+    index_of_min = 0
+    for k in range(n):
+        if numbers[k] > numbers[index_of_min]:
+            index_of_min = k
+
+    return index_of_min
+
 
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through the sequence accessing TWO
@@ -238,6 +252,12 @@ def number_of_stutters(s):
     # TODO: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+    count = 0
+    for k in range(len(s)-1):
+        if s[k] == s[k+1]:
+            count = count +1
+    return count
+
 
 
 def run_test_is_palindrome():
@@ -317,6 +337,15 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
+    backward = ''
+    for k in range(len(s) -1 , -1, -1):
+        backward = backward + s[k]
+    if backward == s:
+        return True
+    else:
+        return False
+
+
 
 
 # ----------------------------------------------------------------------
@@ -378,6 +407,18 @@ def count_same(sequence1, sequence2):
     # TODO: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
+
+    if sequence1 <= sequence2:
+        smol = sequence1
+    else:
+        smol = sequence2
+
+    count = 0
+    for k in range(len(smol)):
+        if sequence1[k] == sequence2[k]:
+            count = count + 1
+
+    return count
 
 
 # ----------------------------------------------------------------------
